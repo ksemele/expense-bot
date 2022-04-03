@@ -12,7 +12,8 @@ async def bot_help(message: types.Message):
             "/add - Add expense.",
             "/edit - Edit expense.",
             "/list - See my expenses.",
-            "/settings - Configure bot."
+            "/settings - Configure bot.",
+            "/test - Test command."
             )
     
     await message.answer("\n".join(text))

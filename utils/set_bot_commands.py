@@ -10,7 +10,7 @@ async def set_default_commands(dp):
             types.BotCommand("edit", "Edit expense."),
             types.BotCommand("list", "See my expenses."),
             types.BotCommand("settings", "Configure bot."),
-            # types.BotCommand("settings2", "Configure bot."),
+            types.BotCommand("test", "Test command."),
             # types.BotCommand("settings3", "Configure bot."),
         ]
     )
