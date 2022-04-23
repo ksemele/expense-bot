@@ -4,3 +4,4 @@ from . import echo
 from . import add
 from . import settings
 from . import test
+from . import currencies
