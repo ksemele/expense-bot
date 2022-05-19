@@ -13,6 +13,7 @@ async def bot_help(message: types.Message):
             "/edit - Edit expense.",
             "/list - See my expenses.",
             "/settings - Configure bot.",
+            "/currencies - Get Official Georgian course",
             "/test - Test command."
             )
     
