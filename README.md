@@ -1,6 +1,21 @@
 # expense-bot
 
-## Local run
+## Build Image
+
+```
+docker build -t expense-bot:latest .
+```
+
+## [WIP] Push Image to registry
+
+```
+$ podman login quay.io
+$ podman push [hash]|[localhost/expense-bot:0.1.0] docker://quay.io/ksemele/expense-bot:0.1.0
+```
+
+## Run bot
+
+### local
 
 ```bash
 python3 -m venv venv
@@ -8,20 +23,15 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-# [WIP]
+### container
 
-# Build Image
+Ensure you have an `.env` file with followed content:
+```yaml
+ADMINS=12345678,12345677,12345676
+BOT_TOKEN=0000000000:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+HOST_IP=localhost
 ```
-$ sudo podman build -t expense-bot:0.1.0 .
-```
-# Push Image to registry
-```
-$ podman login quay.io
-$ podman push [hash]|[localhost/expense-bot:0.1.0] docker://quay.io/ksemele/expense-bot:0.1.0
-```
-# Run bot
-```
-$ podman login quay.io
-$ podman pull quay.io/ksemele/expense-bot
-$ podman pull quay.io/ksemele/expense-bot:0.1.0
+Then run
+```bash
+docker run --name expense-bot --env-file .env expense-bot:latest
 ```
