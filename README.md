@@ -31,7 +31,11 @@ ADMINS=12345678,12345677,12345676
 BOT_TOKEN=0000000000:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 HOST_IP=localhost
 ```
-Then run
+Then run on Docker
 ```bash
-docker run --name expense-bot --env-file .env expense-bot:latest
+docker run --name expense-bot --env-file .env -d expense-bot:latest
+```
+or Podman
+```bash
+podman run --restart always --name expense-bot --env-file .env -d expense-bot:latest
 ```
