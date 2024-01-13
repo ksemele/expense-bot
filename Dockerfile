@@ -1,16 +1,16 @@
-FROM python:3.8 AS builder
+FROM python:3.12 AS builder
 COPY requirements.txt .
 
 # install dependencies to the local user directory (eg. /root/.local)
-RUN pip install --user -r requirements.txt
+RUN pip3 install --user -r requirements.txt
 
 # second stage
-FROM python:3.8-slim
+FROM python:3.12-slim
 WORKDIR /code
 
 # copy only the dependencies that are needed for our application and the source files
 COPY --from=builder /root/.local /root/.local
-COPY ./src .
+COPY ./source .
 
 # update PATH
 ENV PATH=/root/.local:$PATH
