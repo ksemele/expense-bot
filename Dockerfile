@@ -6,7 +6,7 @@ RUN pip3 install --user -r requirements.txt
 
 # second stage
 FROM python:3.12-slim
-WORKDIR /code
+WORKDIR /source
 
 # copy only the dependencies that are needed for our application and the source files
 COPY --from=builder /root/.local /root/.local
@@ -19,4 +19,4 @@ ENV PATH=/root/.local:$PATH
 # CMD [ "python", "-u", "./main.py" ]
 EXPOSE 8080
 # CMD [ "bash", "./run.sh" ]
-CMD [ "python", "app.py" ]
+CMD [ "python3", "app.py" ]
